@@ -39,7 +39,9 @@
  *         "gp": [12, 34, 116, 29]
  *     }
  * }
- *
+ */
+
+/*
  * getRootProperty(object, 250);  //=> "r1n"
  * getRootProperty(object, 116); //=> "fik"
  * getRootProperty(object, 111);  //=> "r1n"
@@ -51,8 +53,30 @@
  * @param {number} val
  * @return {string|null}
  */
-function getRootProperty(object, val) {}
+const getRootProperty = (obj, val) => {
+  let root = [];
+  Object.values(obj).forEach((el, i) => {
+    if (isRoot(el, val)) root.push(Object.keys(obj)[i]);
+  });
+  return root.length !== 0 ? (root.length === 1 ? root[0] : root) : null;
+};
 
+const isRoot = (obj, val) => {
+  if (Array.isArray(obj)) {
+    return obj.includes(val);
+  } else {
+    let bool = false;
+    Object.values(obj).forEach((el) => {
+      if (Array.isArray(el)) {
+        if (el.includes(val)) bool = true;
+        return;
+      } else {
+        bool = isRoot(el, val);
+      }
+    });
+    return bool;
+  }
+};
 //EXTRA::
 // if you really want to challenge your solution.
 // Create an account in code wars (an amazing website for programming challenges and improving problem solving skills)
