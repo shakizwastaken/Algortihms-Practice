@@ -51,18 +51,13 @@
  * @param {number} val
  * @return {string|null}
  */
-function getRootProperty(object, val) {
-    //todo
-}
+function getRootProperty(object, val) {}
 
 //EXTRA::
 // if you really want to challenge your solution.
 // Create an account in code wars (an amazing website for programming challenges and improving problem solving skills)
 // Check this link right here. https://www.codewars.com/kata/598638d7f3a2c489b2000030/train/javascript
 // Try to make your solution pass all the tests in the website by copying your solution to the solution textarea and pressing attempt.
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ignore the below code // //
