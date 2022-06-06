@@ -24,9 +24,5 @@ const arr = [
 ];
 
 function sumOfMinimums(arr) {
-  let result = 0;
-  arr.forEach((el) => {
-    result = result + Math.min(...el);
-  });
-  return result;
+  return arr.reduce((a, b) => a + Math.min(...b), 0);
 }
