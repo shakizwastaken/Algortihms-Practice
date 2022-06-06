@@ -17,6 +17,16 @@
  * @param {Array} arr
  * @return {number}
  */
+const arr = [
+  [1, 2, 3, 4, 5], // minimum value of row is 1
+  [5, 6, 7, 8, 9], // minimum value of row is 5
+  [20, 21, 34, 56, 100], // minimum value of row is 20
+];
+
 function sumOfMinimums(arr) {
-    // your code here
+  let result = 0;
+  arr.forEach((el) => {
+    result = result + Math.min(...el);
+  });
+  return result;
 }
