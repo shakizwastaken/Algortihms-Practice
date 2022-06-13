@@ -11,6 +11,7 @@
  *
  * a = [121, 144, 19, 161, 19, 144, 19, 11]
  * b = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
+ *
  * Invalid arrays
  * If we change the first number to something else, comp may not return true anymore:
  *
@@ -36,12 +37,32 @@
  * @param {Array} array1
  * @param {Array} array2
  * @return {boolean}
+ *
+ *
  */
-function comp(array1, array2) {
-    //your code here
-}
+
+const comp = (arr1, arr2) => {
+  if (!arr1 || !arr2) return false;
+  if (arr1.length !== arr2.length) return false;
+
+  arr1.sort((a, b) => a - b);
+  arr2.sort((a, b) => a - b);
+
+  return checkRoot(arr1, arr2);
+};
+
+const checkRoot = (arr1, arr2) => {
+  if (arr1[0] !== Math.sqrt(arr2[0])) return false;
+
+  arr1.splice(0, 1);
+  arr2.splice(0, 1);
+
+  if (arr1.length === 0) return true;
+
+  return checkRoot(arr1, arr2);
+};
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ignore the below code // //
-module.exports = comp; //
+module.exports = comp;
 // // // // // // // // // //
